@@ -1,9 +1,9 @@
 import { Fragment, memo } from "react"
 
-const Button = ({ text, textColor, }) => {
+const Button = ({ text, textColor, className }) => {
     return (
         <Fragment>
-            <div className="btn-header" style={{padding: '20px'}}>
+            <div className={className} style={{padding: '20px'}}>
                 <a href="/" className="btn-text">
                     {text}
                 </a>

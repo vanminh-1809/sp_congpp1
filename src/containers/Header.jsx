@@ -7,7 +7,12 @@ import Button from "../components/Button";
 
 
 const Header = () => {
-    const buttonText = ['Home', 'Company', 'Services', 'Contacts']
+    const buttonText = [
+        {text: 'Home', active: false},
+        {text: 'Company', active: false},
+        {text: 'Services', active: false},
+        {text: 'Contacts', active: true}
+    ]
     return (
         <Fragment>
             <div style={{display: 'flex', margin: 'auto', justifyContent: 'center', maxWidth: '100%'}}>
@@ -19,8 +24,9 @@ const Header = () => {
                 <div style={{display: 'flex', justifyContent: 'center', width: '50%'}}>
                     {buttonText.map((button) => (
                         <Button
+                            className={button.active ? 'btn-header-active' : 'btn-header'}
                             key={button}
-                            text={button}
+                            text={button.text}
                             textColor="text-black"
                         />
                     ))}
