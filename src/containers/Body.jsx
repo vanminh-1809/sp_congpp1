@@ -39,7 +39,7 @@ const Body = () => {
           paddingTop: '100px'
         }}
       >
-        <div className="contact-form">
+        <div className="contact-container">
           <ContactForm />
         </div>
         <div className="input-form">
