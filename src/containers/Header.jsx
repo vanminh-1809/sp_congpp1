@@ -16,7 +16,7 @@ const Header = () => {
                         <img src={logo} alt="logo" />
                     {/* </Link> */}
                 </div>
-                <div style={{display: 'flex', justifyContent: 'center', padding: '10px', width: '50%'}}>
+                <div style={{display: 'flex', justifyContent: 'center', width: '50%'}}>
                     {buttonText.map((button) => (
                         <Button
                             key={button}

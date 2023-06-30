@@ -12,10 +12,38 @@
 }
 
 .btn-header {
+  position: relative;
   cursor: pointer;
   display: flex;
   justify-content: space-around;
   align-items: center;
+}
+
+.btn-header::after {
+  content: '';
+  position: absolute;
+  height: 2px;
+  width: 0%;
+  background-color: #43baff;
+  bottom: 0;
+  left: 14px;
+  transition: width 0.5s;
+}
+
+.btn-header:hover::after {
+  width: 75%;
+}
+
+.btn-header:hover .btn-text{
+  cursor: pointer;
+  color: #179a76;
+  transition: color 0.5s;
+}
+
+.btn-text {
+  text-decoration: none;
+  color: black;
+  font-weight: 600
 }
 
 .btn-group {
