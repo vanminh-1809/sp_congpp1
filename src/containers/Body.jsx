@@ -33,7 +33,7 @@ const Body = () => {
       <div
         style={{
           display: "flex",
-          justifyContent: "space-around",
+          justifyContent: "center",
           alignItems: "center",
           width: "100%",
           paddingTop: '100px'
