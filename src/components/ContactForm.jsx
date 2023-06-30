@@ -20,7 +20,7 @@ const ContactForm = () => {
                 <h2>Our Mailbox:</h2>
                 <p>sales@vggate.com</p>
             </div>
-            <div>
+            <div className="contact-link">
                 <div className='skype-link'>
                     <a href='https://join.skype.com/invite/pygzdgflqhAF'>Skype</a>
                 </div>

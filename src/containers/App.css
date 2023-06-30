@@ -220,19 +220,16 @@
 
 .contact-container {
   width: 566px;
-  height: 591px;
-  margin-left: 150px;
+  /* height: 591px; */
+  margin-right: 95px;
 }
 
 
 .addr-form {
-  width: 475px;
-  height: 139px;
-}
-
-.addr-form {
-  margin-top: 45px;
-  margin-left: 100px;
+  /* width: 475px; */
+  padding: 40px 40px 20px;
+  line-height: 35px;
+  /* height: 139px; */
 }
 
 .addr-form h2 {
@@ -256,8 +253,7 @@
 }
 
 .mail-form {
-  margin-top: 5px;
-  margin-left: 100px;
+  padding: 20px 40px;
 }
 
 .mail-form h2 {
@@ -278,4 +274,17 @@
   line-height: 1.5;
   display: block;
   color: #6d6d6d
+}
+
+.contact-link {
+  display: flex;
+  padding: 20px 40px 20px;
+}
+
+.skype-link {
+  width: 50%;
+}
+
+.whattapp-link {
+  width: 50%;
 }
