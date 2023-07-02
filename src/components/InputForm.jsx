@@ -14,6 +14,7 @@ const InpurForm = ({ placeholder, value, setValue, type, keyPayload, className }
                         style={{
                             paddingLeft: '20px',
                             gap: '100px',
+                            border: 'none',
                             outline: 'none',
                             background: 'rgba(242, 242, 242, 0.5)',
                             fontFamily: "Nunito Sans sans-serif",
@@ -21,7 +22,6 @@ const InpurForm = ({ placeholder, value, setValue, type, keyPayload, className }
                             lineHeight: '1.875',
                             fontWeight: '400',
                             color: 'white',
-
                         }}
                     /> : <textarea
                         className={` ${className}`}

@@ -200,6 +200,7 @@
 
 .contact-form {
   color: red;
+  padding: 20px 0;
 }
 
 .contact-form span {
@@ -227,9 +228,14 @@
 
 .addr-form {
   /* width: 475px; */
-  padding: 40px 40px 20px;
+  padding: 20px 40px;
   line-height: 35px;
+  transition: all 0.3s linear;
   /* height: 139px; */
+}
+
+.addr-form:hover {
+  box-shadow: 15px 15px 38px 0 rgba(0, 0, 0, 0.1);
 }
 
 .addr-form h2 {
@@ -254,6 +260,11 @@
 
 .mail-form {
   padding: 20px 40px;
+  transition: all 0.3s linear;
+}
+
+.mail-form:hover {
+  box-shadow: 15px 15px 38px 0 rgba(0, 0, 0, 0.1);
 }
 
 .mail-form h2 {
@@ -278,13 +289,96 @@
 
 .contact-link {
   display: flex;
-  padding: 20px 40px 20px;
 }
 
 .skype-link {
   width: 50%;
+  padding: 20px 40px 20px;
+  transition: all 0.3s linear;
+}
+
+.skype-link:hover {
+  box-shadow: 15px 15px 38px 0 rgba(0, 0, 0, 0.1);
 }
 
 .whatapp-link {
   width: 50%;
+  padding: 20px 40px 20px;
+  transition: all 0.3s linear;
+}
+
+.whatapp-link:hover {
+  box-shadow: 15px 15px 38px 0 rgba(0, 0, 0, 0.1);
+}
+
+.footer-container {
+  width: 1200px;
+  height: 456px;
+  
+}
+
+.img-footer {
+  display: flex;
+  max-width: 40%;
+  margin: auto;
+  justify-content: flex-start;
+}
+
+.sign {
+  display: flex;
+  justify-content: center;
+  color: #AEAACB;
+  font-family: "Nunito Sans", sans-serif;
+  font-weight: var(--e-global-typography-text-font-weight );
+}
+
+.footer-container {
+  margin-top: 100px;
+  margin-left: 200px;
+}
+
+.footer-container-comp {
+  display: flex;
+  padding: 20px 40px 20px;
+  justify-content: space-around;
+}
+
+.footer-menu-container {
+  margin-left: 400px;
+}
+
+.footer-comp-2 h6 {
+  font-size: 20px;
+  font-weight: 600;
+  color: #403E4F;
+}
+
+.footer-comp-3-mailbox h6 {
+  font-size: 20px;
+  font-weight: 600;
+  color: #403E4F;
+}
+
+.footer-comp-3-phone h6 {
+  font-size: 20px;
+  font-weight: 600;
+  color: #403E4F;
+  margin-top: 20px;
+}
+
+.link-list {
+  display: flex;
+  padding: 20px 40px 20px;
+}
+
+.linkedin-link {
+  width: 50%;
+}
+
+.github-link {
+  width: 50%;
+}
+
+.map {
+  margin-top: 80px;
 }

@@ -9,7 +9,7 @@ const Home = () => {
             <div>
                 <Header/>
                 <Body/>
-                {/* <Footer/> */}
+                <Footer/>
             </div>
         </Fragment>
     )
