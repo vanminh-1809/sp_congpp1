@@ -285,6 +285,78 @@
   width: 50%;
 }
 
-.whattapp-link {
+.whatapp-link {
   width: 50%;
+}
+
+.footer-container {
+  width: 1200px;
+  height: 456px;
+  
+}
+
+.img-footer {
+  display: flex;
+  max-width: 40%;
+  margin: auto;
+  justify-content: flex-start;
+}
+
+.sign {
+  display: flex;
+  justify-content: center;
+  color: #AEAACB;
+  font-family: "Nunito Sans", sans-serif;
+  font-weight: var(--e-global-typography-text-font-weight );
+}
+
+.footer-container {
+  margin-top: 100px;
+  margin-left: 200px;
+}
+
+.footer-container-comp {
+  display: flex;
+  padding: 20px 40px 20px;
+  justify-content: space-around;
+}
+
+.footer-menu-container {
+  margin-left: 400px;
+}
+
+.footer-comp-2 h6 {
+  font-size: 20px;
+  font-weight: 600;
+  color: #403E4F;
+}
+
+.footer-comp-3-mailbox h6 {
+  font-size: 20px;
+  font-weight: 600;
+  color: #403E4F;
+}
+
+.footer-comp-3-phone h6 {
+  font-size: 20px;
+  font-weight: 600;
+  color: #403E4F;
+  margin-top: 20px;
+}
+
+.link-list {
+  display: flex;
+  padding: 20px 40px 20px;
+}
+
+.linkedin-link {
+  width: 50%;
+}
+
+.github-link {
+  width: 50%;
+}
+
+.map {
+  margin-top: 80px;
 }
