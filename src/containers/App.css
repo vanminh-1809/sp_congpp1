@@ -28,7 +28,7 @@
 }
 
 .btn-header-active::after {
-  content: '';
+  content: "";
   position: absolute;
   height: 2px;
   width: 75%;
@@ -37,14 +37,14 @@
   left: 14px;
 }
 
-.btn-header-active:hover .btn-text{
+.btn-header-active:hover .btn-text {
   cursor: pointer;
   color: #179a76;
   transition: color 0.5s;
 }
 
 .btn-header::after {
-  content: '';
+  content: "";
   position: absolute;
   height: 2px;
   width: 0%;
@@ -58,7 +58,7 @@
   width: 75%;
 }
 
-.btn-header:hover .btn-text{
+.btn-header:hover .btn-text {
   cursor: pointer;
   color: #179a76;
   transition: color 0.5s;
@@ -67,7 +67,7 @@
 .btn-text {
   text-decoration: none;
   color: black;
-  font-weight: 600
+  font-weight: 600;
 }
 
 .btn-group {
@@ -77,13 +77,23 @@
   align-items: center;
   font-family: "Nunito Sans", sans-serif;
   font-size: 16px;
-
 }
 
 .btn-group a {
   margin-top: 5px;
   margin-left: 300px;
   position: relative;
+}
+
+.body {
+  position: relative;
+}
+
+.header-fixed {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
 }
 
 .body-box {
@@ -173,7 +183,7 @@
   cursor: pointer;
   /* box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px; */
   outline: none;
-  font-family: 'Nunito Sans', sans-serif;
+  font-family: "Nunito Sans", sans-serif;
   font-weight: 300;
   font-size: 16px;
   line-height: 1.42857143;
@@ -225,7 +235,6 @@
   margin-right: 95px;
 }
 
-
 .addr-form {
   /* width: 475px; */
   padding: 20px 40px;
@@ -249,13 +258,12 @@
   margin-inline-end: 0px;
 }
 
-
 .addr-form p {
   font-size: 16px;
   font-family: "Nunito Sans", sans-serif;
   line-height: 1.5;
   display: block;
-  color: #6d6d6d
+  color: #6d6d6d;
 }
 
 .mail-form {
@@ -278,13 +286,12 @@
   margin-inline-end: 0px;
 }
 
-
 .mail-form p {
   font-size: 16px;
   font-family: "Nunito Sans", sans-serif;
   line-height: 1.5;
   display: block;
-  color: #6d6d6d
+  color: #6d6d6d;
 }
 
 .contact-link {
@@ -314,7 +321,6 @@
 .footer-container {
   width: 1200px;
   height: 456px;
-  
 }
 
 .img-footer {
@@ -327,9 +333,9 @@
 .sign {
   display: flex;
   justify-content: center;
-  color: #AEAACB;
+  color: #aeaacb;
   font-family: "Nunito Sans", sans-serif;
-  font-weight: var(--e-global-typography-text-font-weight );
+  font-weight: var(--e-global-typography-text-font-weight);
 }
 
 .footer-container {
@@ -350,19 +356,19 @@
 .footer-comp-2 h6 {
   font-size: 20px;
   font-weight: 600;
-  color: #403E4F;
+  color: #403e4f;
 }
 
 .footer-comp-3-mailbox h6 {
   font-size: 20px;
   font-weight: 600;
-  color: #403E4F;
+  color: #403e4f;
 }
 
 .footer-comp-3-phone h6 {
   font-size: 20px;
   font-weight: 600;
-  color: #403E4F;
+  color: #403e4f;
   margin-top: 20px;
 }
 

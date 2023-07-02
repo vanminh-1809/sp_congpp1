@@ -6,7 +6,7 @@ import Button from "../components/Button";
 
 
 
-const Header = () => {
+const Header = ({className}) => {
     const buttonText = [
         {text: 'Home', active: false},
         {text: 'Company', active: false},
@@ -15,7 +15,7 @@ const Header = () => {
     ]
     return (
         <Fragment>
-            <div style={{display: 'flex', margin: 'auto', justifyContent: 'center', maxWidth: '100%'}}>
+            <div style={{display: 'flex', margin: 'auto', justifyContent: 'center', maxWidth: '100%', position: 'fixed', top: '0', left: '0', right: '0', zIndex: '100', background: 'white'}}>
                 <div>
                     {/* <Link to={'/'}> */}
                         <img src={logo} alt="logo" />
