@@ -1,11 +1,18 @@
 import { Fragment, useState, useContext } from "react"
-import { useSelector } from "react-redux"
+import { useSelector, useDispatch } from "react-redux"
+import { setFromPayload } from "../Redux/payloadDataAction";
 
 const Review = () => {
     const payloadData = useSelector((state) => state);
+    const dispatch = useDispatch()
 
     const handleOnclick = () => {
-        alert('anc')
+        let finalPayload = {
+            name: payloadData.name,
+            email: payloadData.email,
+            message: payloadData.message
+        }
+        dispatch(setFromPayload(finalPayload));
     }
 
     return (

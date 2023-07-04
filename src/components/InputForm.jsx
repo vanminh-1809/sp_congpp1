@@ -8,8 +8,7 @@ const InputForm = ({ placeholder, value, setValue, type, keyPayload, className }
                 {className === 'not-msg' ?
                     <input
                         className={` ${className}`}
-                        type={type || 'text'}
-                        value={value}
+
                         placeholder={placeholder}
                         onChange={(event) => setValue(event.target.value)}
                         style={{
@@ -27,7 +26,7 @@ const InputForm = ({ placeholder, value, setValue, type, keyPayload, className }
                     /> : <textarea
                         className={` ${className}`}
                         type={type || 'text'}
-                        value={value}
+
                         placeholder={placeholder}
                         onChange={(event) => setValue(event.target.value)}
                         style={{

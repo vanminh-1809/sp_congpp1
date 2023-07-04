@@ -77,7 +77,6 @@ const Body = () => {
                 className={"not-msg"}
               />
               <br />
-
               <InputForm
                 placeholder={placeholder.email}
                 value={payload.email}
@@ -87,7 +86,6 @@ const Body = () => {
                 className={"not-msg"}
               />
               <br />
-
               <InputForm
                 placeholder={placeholder.message}
                 value={payload.message}
