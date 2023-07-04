@@ -1,6 +1,7 @@
 import { Fragment, memo } from "react"
+import Review from "../containers/Review"
 
-const InpurForm = ({ placeholder, value, setValue, type, keyPayload, className }) => {
+const InputForm = ({ placeholder, value, setValue, type, keyPayload, className }) => {
     return (
         <Fragment>
             <div className={`${className}`}>
@@ -10,7 +11,7 @@ const InpurForm = ({ placeholder, value, setValue, type, keyPayload, className }
                         type={type || 'text'}
                         value={value}
                         placeholder={placeholder}
-                        onChange={(event) => setValue((prev) => ({ ...prev, [keyPayload]: event.target.value }))}
+                        onChange={(event) => setValue(event.target.value)}
                         style={{
                             paddingLeft: '20px',
                             gap: '100px',
@@ -28,7 +29,7 @@ const InpurForm = ({ placeholder, value, setValue, type, keyPayload, className }
                         type={type || 'text'}
                         value={value}
                         placeholder={placeholder}
-                        onChange={(event) => setValue((prev) => ({ ...prev, [keyPayload]: event.target.value }))}
+                        onChange={(event) => setValue(event.target.value)}
                         style={{
                             paddingLeft: '20px',
                             gap: '1000px',
@@ -46,4 +47,4 @@ const InpurForm = ({ placeholder, value, setValue, type, keyPayload, className }
     )
 }
 
-export default memo(InpurForm)
+export default memo(InputForm)

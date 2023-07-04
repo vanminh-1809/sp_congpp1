@@ -1,8 +1,11 @@
-import Box from "../components/Box";
-import { Fragment, memo, useState } from "react";
+import { Fragment, memo, useState, createContext } from "react";
 import InputForm from "../components/InputForm";
 import ContactForm from "../components/ContactForm";
-import Header from "./Header";
+import { useNavigate, Link } from 'react-router-dom';
+import { useCallback } from 'react';
+import { path } from '../utils/constant.js';
+import { useSelector, useDispatch } from "react-redux";
+import { setFromPayload } from "../Redux/payloadDataAction";
 
 const Body = () => {
   const [payload, setPayload] = useState({
@@ -10,6 +13,8 @@ const Body = () => {
     email: "",
     message: "",
   });
+  const payloadData = useSelector((state) => state);
+  const dispatch = useDispatch();
 
   const placeholder = {
     name: "Your Name*",
@@ -17,13 +22,22 @@ const Body = () => {
     message: "Message...",
   };
 
-  const handleOnSubmit = () => {
-    alert("1+1=");
+  const navigate = useNavigate();
+  const handleSendMsg = useCallback((flag) => {
+    navigate(path.REVIEW, { state: { flag } });
+  });
+
+  const handleInputChange = (key, value) => {
+    const updatedPayloadData = {
+      ...payloadData,
+      [key]: value
+    };
+    dispatch(setFromPayload(updatedPayloadData));
   };
 
   return (
     <Fragment>
-      <div className="body" style={{marginTop: '111px'}}>
+      <div className="body" style={{ marginTop: '111px' }}>
         <div
           className="body-box"
           style={{ display: "flex", margin: 0, width: "100%" }}
@@ -57,32 +71,34 @@ const Body = () => {
               <InputForm
                 placeholder={placeholder.name}
                 value={payload.name}
-                setValue={setPayload}
+                setValue={(value) => handleInputChange('name', value)}
                 type="name"
                 keyPayload={"name"}
                 className={"not-msg"}
               />
               <br />
+
               <InputForm
                 placeholder={placeholder.email}
                 value={payload.email}
-                setValue={setPayload}
+                setValue={(value) => handleInputChange('email', value)}
                 type="email"
                 keyPayload={"email"}
                 className={"not-msg"}
-              ></InputForm>
+              />
               <br />
+
               <InputForm
                 placeholder={placeholder.message}
                 value={payload.message}
-                setValue={setPayload}
+                setValue={(value) => handleInputChange('message', value)}
                 type="message"
                 keyPayload={"message"}
                 className={"is-msg"}
               />
             </div>
             <div className="send-btn">
-              <button type="submit" onClick={() => handleOnSubmit()}>
+              <button type="submit" onClick={() => handleSendMsg(false)}>
                 Send Message
               </button>
             </div>

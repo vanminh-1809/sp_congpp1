@@ -1,6 +1,7 @@
 import { Fragment } from "react"
 import logofooter from "../../src/asset/logofooter.png"
 import Button from "../components/Button"
+import { BackTop } from "antd";
 
 const Footer = () => {
     const buttonText = [
