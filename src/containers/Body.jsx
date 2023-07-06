@@ -1,17 +1,18 @@
-import { Fragment, memo, useState, createContext } from "react";
+import { Fragment, memo, useState } from "react";
 import InputForm from "../components/InputForm";
 import ContactForm from "../components/ContactForm";
-import { useNavigate, Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { useCallback } from 'react';
 import { path } from '../utils/constant.js';
 import { useSelector, useDispatch } from "react-redux";
-import { setFromPayload } from "../Redux/payloadDataAction";
+import { setFromPayload, updateFile } from "../Redux/payloadDataAction";
 
 const Body = () => {
   const [payload, setPayload] = useState({
     name: "",
     email: "",
     message: "",
+    file: null,
   });
   const payloadData = useSelector((state) => state);
   const dispatch = useDispatch();
@@ -32,7 +33,13 @@ const Body = () => {
       ...payloadData,
       [key]: value
     };
+    console.log(updatedPayloadData);
     dispatch(setFromPayload(updatedPayloadData));
+  };
+
+  const handleFileChange = (event) => {
+    const selectedFile = event.target.files[0];
+    dispatch(updateFile(selectedFile))
   };
 
   return (
@@ -93,6 +100,14 @@ const Body = () => {
                 type="message"
                 keyPayload={"message"}
                 className={"is-msg"}
+              />
+              <br />
+              <InputForm
+                // value={payload.file}
+                handleFileChange={handleFileChange}
+                type="file"
+                keyPayload={"file"}
+                className={'file-input'}
               />
             </div>
             <div className="send-btn">
