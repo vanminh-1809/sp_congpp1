@@ -10,14 +10,14 @@ import { setFromPayload, updateFile } from "../Redux/payloadDataAction";
 
 const Body = () => {
   const { register, handleSubmit } = useForm();
-  const [payload, setPayload] = useState({
-    name: "",
-    email: "",
-    message: "",
-    file: "",
-  });
-  const payloadData = useSelector((state) => state);
-  const dispatch = useDispatch();
+  // const [payload, setPayload] = useState({
+  //   name: "",
+  //   email: "",
+  //   message: "",
+  //   file: "",
+  // });
+  // const payloadData = useSelector((state) => state);
+  // const dispatch = useDispatch();
 
   const placeholder = {
     name: "Your Name*",
@@ -31,24 +31,24 @@ const Body = () => {
     console.log('aaa', data)
   });
 
-  const handleInputChange = (key, value) => {
-    const updatedPayloadData = {
-      ...payloadData,
-      [key]: value
-    };
-    console.log('payloadData', payloadData.file)
-    console.log(updatedPayloadData);
-    dispatch(setFromPayload(updatedPayloadData));
-  };
+  // const handleInputChange = (key, value) => {
+  //   const updatedPayloadData = {
+  //     ...payloadData,
+  //     [key]: value
+  //   };
+  //   console.log('payloadData', payloadData.file)
+  //   console.log(updatedPayloadData);
+  //   dispatch(setFromPayload(updatedPayloadData));
+  // };
 
-  const handleFileChange = (event) => {
-    const selectedFile = event.target.files[0];
-    dispatch(updateFile(selectedFile))
-  };
+  // const handleFileChange = (event) => {
+  //   const selectedFile = event.target.files[0];
+  //   dispatch(updateFile(selectedFile))
+  // };
 
-  const test = () => {
-    console.log('test');
-  };
+  // const test = (data) => {
+  //   console.log('test', data);
+  // };
 
   return (
     <Fragment>
@@ -82,50 +82,52 @@ const Body = () => {
               Your email address will not be published. Required fields are
               marked*
             </small>
-            <div className="input-field" >
-              <InputForm
-                placeholder={placeholder.name}
-                value={payloadData.name}
-                setValue={(value) => handleInputChange('name', value)}
-                type="name"
-                keyPayload={"name"}
-                className={"not-msg"}
-              />
-              <br />
-              <InputForm
-                placeholder={placeholder.email}
-                value={payloadData.email}
-                setValue={(value) => handleInputChange('email', value)}
-                type="email"
-                keyPayload={"email"}
-                className={"not-msg"}
-                
-              />
-              <br />
-              <InputForm
-                placeholder={placeholder.message}
-                value={payloadData.message}
-                setValue={(value) => handleInputChange('message', value)}
-                type="message"
-                keyPayload={"message"}
-                className={"is-msg"}
-                // {...register('message', { required: true })}
-              />
-              <br />
-              <InputForm
-                // value={payload.file}
-                handleFileChange={handleFileChange}
-                value={payloadData.file.name}
-                type="file"
-                keyPayload={"file"}
-                className={'file-input'}
-              />
-              <div className="send-btn">
-                <button type="submit" onClick={() => handleSendMsg(false)}>
-                  Send Message
-                </button>
+              <div className="input-field" >
+                  <InputForm
+                    // placeholder={placeholder.name}
+                    // value={payloadData.name}
+                    // setValue={(value) => handleInputChange('name', value)}
+                    type="name"
+                    // keyPayload={"name"}
+                    className={"not-msg"}
+                    // registerName={{...register('name', {required: true})}}
+                  />
+                <br />
+                {/* <InputForm
+                  placeholder={placeholder.email}
+                  // value={payloadData.email}
+                  // setValue={(value) => handleInputChange('email', value)}
+                  type="email"
+                  keyPayload={"email"}
+                  className={"not-msg"}
+                  registerName={{...register('email', {required: true})}}
+                />
+                <br /> */}
+                {/* <InputForm
+                  // placeholder={placeholder.message}
+                  // value={payloadData.message}
+                  // setValue={(value) => handleInputChange('message', value)}
+                  type="message"
+                  // keyPayload={"message"}
+                  className={"is-msg"}
+                  // {...register('message', { required: true })}
+                />
+                <br />
+                <InputForm
+                  // value={payload.file}
+                  // handleFileChange={handleFileChange}
+                  // value={payloadData.file.name}
+                  type="file"
+                  // keyPayload={"file"}
+                  className={'file-input'}
+                /> */}
+                <div className="send-btn">
+                  {/* <button type="submit" onClick={handleSendMsg(false)}>
+                    Send Message
+                  </button> */}
+                </div>
               </div>
-            </div>
+            
 
           </div>
         </div>
