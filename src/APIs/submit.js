@@ -1,15 +1,9 @@
-import axiosConfig from '../axios-config.js'
+import axios from "axios";
 
-export const apiSubmit = (payload) => new Promise(async(resolve, reject) => {
-    try {
-        const response = axiosConfig({
-            method: 'POST',
-            url: 'http://localhost:8007/api/submit/add',
-            data: payload
-        });
-        resolve(response);
-    } catch (error) {
-        console.log(error);
-        reject(error);
-    }
-});
+export const apiSubmit = async (data) => {
+  try {
+    await axios.post("http://localhost:8007/api/submit/add", data);
+  } catch (error) {
+    console.log(error);
+  }
+};
