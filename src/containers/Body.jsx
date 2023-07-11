@@ -14,7 +14,7 @@ const Body = () => {
     name: "",
     email: "",
     message: "",
-    file: null,
+    file: "",
   });
   const payloadData = useSelector((state) => state);
   const dispatch = useDispatch();
@@ -36,6 +36,7 @@ const Body = () => {
       ...payloadData,
       [key]: value
     };
+    console.log('payloadData', payloadData.file)
     console.log(updatedPayloadData);
     dispatch(setFromPayload(updatedPayloadData));
   };
@@ -75,7 +76,7 @@ const Body = () => {
           <div className="contact-container">
             <ContactForm />
           </div>
-          <form className="input-form" onSubmit={handleSubmit(test)} action="">
+          <div className="input-form">
             <h3 className="form-title"> Ready to Get Started?</h3>
             <small className="">
               Your email address will not be published. Required fields are
@@ -84,37 +85,37 @@ const Body = () => {
             <div className="input-field" >
               <InputForm
                 placeholder={placeholder.name}
-                value={payload.name}
+                value={payloadData.name}
                 setValue={(value) => handleInputChange('name', value)}
                 type="name"
                 keyPayload={"name"}
                 className={"not-msg"}
-                {...register('name', { required: true })}
               />
               <br />
               <InputForm
                 placeholder={placeholder.email}
-                value={payload.email}
+                value={payloadData.email}
                 setValue={(value) => handleInputChange('email', value)}
                 type="email"
                 keyPayload={"email"}
                 className={"not-msg"}
-                {...register('email', { required: true, pattern: /^[a-zA-Z._%+-]+@[A-Z0-9.-]+\/[A-Z]{2,}$/i})}
+                
               />
               <br />
               <InputForm
                 placeholder={placeholder.message}
-                value={payload.message}
+                value={payloadData.message}
                 setValue={(value) => handleInputChange('message', value)}
                 type="message"
                 keyPayload={"message"}
                 className={"is-msg"}
-                {...register('message', { required: true })}
+                // {...register('message', { required: true })}
               />
               <br />
               <InputForm
                 // value={payload.file}
                 handleFileChange={handleFileChange}
+                value={payloadData.file.name}
                 type="file"
                 keyPayload={"file"}
                 className={'file-input'}
@@ -126,7 +127,7 @@ const Body = () => {
               </div>
             </div>
 
-          </form>
+          </div>
         </div>
         <div className="map">
           <iframe

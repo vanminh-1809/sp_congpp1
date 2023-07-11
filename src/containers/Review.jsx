@@ -32,7 +32,8 @@ const Review = () => {
         }).then((result) => {
             if (result.isConfirmed) {
                 handleOnclickSubmit();
-                Swal.fire('Lưu thành công!', '', 'success')
+                Swal.fire('Lưu thành công!', '', 'success').then(() => {window.location.reload()});
+                handleOnclickBack();
             } else if (result.isDenied) {
                 handleOnclickBack();
                 Swal.fire('Hãy nhập lại dữ liệu', '', 'info')

@@ -11,12 +11,10 @@ const ContactForm = () => {
                 </p>
             </div>
             <div className="addr-form">
-                <FontAwesomeIcon icon='apple' />
                 <h2>Our Address:</h2>
                 <p>7th Floor, MITEC Tower, Duong Dinh Nghe Street, Yen Hoa Ward, Cau Giay District, Hanoi.</p>
             </div>
             <div className="mail-form">
-                <FontAwesomeIcon icon="fa-brands fa-apple" />
                 <h2>Our Mailbox:</h2>
                 <p>sales@vggate.com</p>
             </div>

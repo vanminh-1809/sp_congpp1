@@ -1,7 +1,9 @@
 import { Fragment, memo } from "react";
+import { useForm } from 'react-hook-form';
 
-const InputForm = ({ placeholder, setValue, type, keyPayload, className, handleFileChange }) => {
+const InputForm = ({ placeholder, setValue, type, keyPayload, className, handleFileChange, value }) => {
     let inputElement;
+    const { register, handleSubmit } = useForm();
 
     const handleOnchange = (event) => {
         setValue(event.target.value)
@@ -11,8 +13,10 @@ const InputForm = ({ placeholder, setValue, type, keyPayload, className, handleF
         inputElement = (
             <input
                 className={` ${className}`}
+                type={type || 'text'}
                 placeholder={placeholder}
                 onChange={handleOnchange}
+                value={value}
                 style={{
                     paddingLeft: '20px',
                     gap: '100px',
@@ -34,6 +38,7 @@ const InputForm = ({ placeholder, setValue, type, keyPayload, className, handleF
                 type="file"
                 placeholder={placeholder}
                 onChange={handleFileChange}
+                // value={value}
                 style={{
                     paddingLeft: '20px',
                     gap: '1000px',
@@ -54,6 +59,7 @@ const InputForm = ({ placeholder, setValue, type, keyPayload, className, handleF
                 type={type || 'text'}
                 placeholder={placeholder}
                 onChange={handleOnchange}
+                value={value}
                 style={{
                     paddingLeft: '20px',
                     gap: '1000px',
