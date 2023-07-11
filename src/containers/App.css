@@ -408,3 +408,36 @@ textarea::placeholder {
 .map {
   margin-top: 80px;
 }
+
+.review-form {
+  display: flexbox;
+  margin-top: 100px;
+  margin-left: 600px;
+  width: 500px;
+  height: 400px;
+  color: #fff;
+  font-family: "Montserrat", sans-serif;
+  font-size: 16px;
+  line-height: 30px;
+  background-image:linear-gradient(90deg, #179a76 0%, #eb3225 100%);
+}
+
+.review-form-input {
+  padding-top: 50px;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.button-list {
+  margin-top: 100px;
+  margin-left: 210px;
+  display: inline-block;
+  padding: 10px 20px;
+  color: white;
+  background-color: rgb(13, 237, 237);
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 10px;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  outline: none;
+}

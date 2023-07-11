@@ -2,12 +2,14 @@ import { Fragment, memo, useState } from "react";
 import InputForm from "../components/InputForm";
 import ContactForm from "../components/ContactForm";
 import { useNavigate } from 'react-router-dom';
+import { useForm } from 'react-hook-form';
 import { useCallback } from 'react';
 import { path } from '../utils/constant.js';
 import { useSelector, useDispatch } from "react-redux";
 import { setFromPayload, updateFile } from "../Redux/payloadDataAction";
 
 const Body = () => {
+  const { register, handleSubmit } = useForm();
   const [payload, setPayload] = useState({
     name: "",
     email: "",
@@ -24,8 +26,9 @@ const Body = () => {
   };
 
   const navigate = useNavigate();
-  const handleSendMsg = useCallback((flag) => {
+  const handleSendMsg = useCallback((flag, data) => {
     navigate(path.REVIEW, { state: { flag } });
+    console.log('aaa', data)
   });
 
   const handleInputChange = (key, value) => {
@@ -40,6 +43,10 @@ const Body = () => {
   const handleFileChange = (event) => {
     const selectedFile = event.target.files[0];
     dispatch(updateFile(selectedFile))
+  };
+
+  const test = () => {
+    console.log('test');
   };
 
   return (
@@ -68,13 +75,13 @@ const Body = () => {
           <div className="contact-container">
             <ContactForm />
           </div>
-          <div className="input-form">
+          <form className="input-form" onSubmit={handleSubmit(test)} action="">
             <h3 className="form-title"> Ready to Get Started?</h3>
             <small className="">
               Your email address will not be published. Required fields are
               marked*
             </small>
-            <div className="input-field">
+            <div className="input-field" >
               <InputForm
                 placeholder={placeholder.name}
                 value={payload.name}
@@ -82,6 +89,7 @@ const Body = () => {
                 type="name"
                 keyPayload={"name"}
                 className={"not-msg"}
+                {...register('name', { required: true })}
               />
               <br />
               <InputForm
@@ -91,6 +99,7 @@ const Body = () => {
                 type="email"
                 keyPayload={"email"}
                 className={"not-msg"}
+                {...register('email', { required: true, pattern: /^[a-zA-Z._%+-]+@[A-Z0-9.-]+\/[A-Z]{2,}$/i})}
               />
               <br />
               <InputForm
@@ -100,6 +109,7 @@ const Body = () => {
                 type="message"
                 keyPayload={"message"}
                 className={"is-msg"}
+                {...register('message', { required: true })}
               />
               <br />
               <InputForm
@@ -109,13 +119,14 @@ const Body = () => {
                 keyPayload={"file"}
                 className={'file-input'}
               />
+              <div className="send-btn">
+                <button type="submit" onClick={() => handleSendMsg(false)}>
+                  Send Message
+                </button>
+              </div>
             </div>
-            <div className="send-btn">
-              <button type="submit" onClick={() => handleSendMsg(false)}>
-                Send Message
-              </button>
-            </div>
-          </div>
+
+          </form>
         </div>
         <div className="map">
           <iframe
