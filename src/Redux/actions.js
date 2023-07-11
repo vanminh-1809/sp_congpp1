@@ -2,6 +2,7 @@ const initialState = {
     name: "",
     email: "",
     message: "",
+    file: {}
   };
   
    export const payloadDataReducer = (state = initialState, action) => {
@@ -11,6 +12,11 @@ const initialState = {
           ...state,
           ...action.payload,
         };
+      case "UPDATE_FILE":
+        return {
+          ...state,
+          file: action.file
+        }
       default:
         return state;
     }
