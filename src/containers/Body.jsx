@@ -33,10 +33,10 @@ const Body = () => {
     dispatch(setFromPayload(updatedPayloadData));
   };
 
-  // const handleFileChange = (event) => {
-  //   const selectedFile = event.target.files[0];
-  //   dispatch(updateFile(selectedFile))
-  // };
+  const handleFileChange = (event) => {
+    const selectedFile = event.target.files[0];
+    dispatch(updateFile(selectedFile))
+  };
 
   const onSubmit = () => {
     console.log('test');
