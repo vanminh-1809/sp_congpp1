@@ -1,14 +1,11 @@
 import { Fragment, memo } from "react";
-import { useForm } from 'react-hook-form';
 
 const InputForm = ({ placeholder, setValue, type, className, handleFileChange, value, name }) => {
     let inputElement;
-    const { register } = useForm();
 
     const handleOnchange = (event) => {
         setValue(event.target.value)
     };
-
     if (className === 'not-msg') {
         inputElement = (
             <input
