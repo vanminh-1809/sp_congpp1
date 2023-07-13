@@ -9,13 +9,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { setFromPayload, updateFile } from "../Redux/payloadDataAction";
 
 const Body = () => {
-  const { register, handleSubmit } = useForm();
-  const [payload, setPayload] = useState({
-    name: "",
-    email: "",
-    message: "",
-    file: "",
-  });
+  const { register, handleSubmit, formState: {errors} } = useForm();
   const payloadData = useSelector((state) => state);
   const dispatch = useDispatch();
 
@@ -36,8 +30,6 @@ const Body = () => {
       ...payloadData,
       [key]: value
     };
-    console.log('payloadData', payloadData.file)
-    console.log(updatedPayloadData);
     dispatch(setFromPayload(updatedPayloadData));
   };
 
@@ -46,7 +38,7 @@ const Body = () => {
     dispatch(updateFile(selectedFile))
   };
 
-  const test = () => {
+  const onSubmit = () => {
     console.log('test');
   };
 
@@ -76,7 +68,7 @@ const Body = () => {
           <div className="contact-container">
             <ContactForm />
           </div>
-          <div className="input-form">
+          <form className="input-form" action='' onSubmit={handleSubmit(handleSendMsg)}>
             <h3 className="form-title"> Ready to Get Started?</h3>
             <small className="">
               Your email address will not be published. Required fields are
@@ -88,46 +80,42 @@ const Body = () => {
                 value={payloadData.name}
                 setValue={(value) => handleInputChange('name', value)}
                 type="name"
-                keyPayload={"name"}
+                name='name'
                 className={"not-msg"}
+                {...register('name', { required: true })}
               />
+              {(Object.keys(errors).length !== 0 && errors?.name.type === 'required') && <small className="error-container">Name is required</small>}
               <br />
               <InputForm
                 placeholder={placeholder.email}
                 value={payloadData.email}
                 setValue={(value) => handleInputChange('email', value)}
                 type="email"
-                keyPayload={"email"}
                 className={"not-msg"}
-                
+                {...register('email', { required: true, pattern: /^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/ })}
               />
+              {(Object.keys(errors).length !== 0 && errors?.email.type === 'required') && <small className="error-container">Email is not valid</small>}
               <br />
               <InputForm
                 placeholder={placeholder.message}
                 value={payloadData.message}
                 setValue={(value) => handleInputChange('message', value)}
                 type="message"
-                keyPayload={"message"}
                 className={"is-msg"}
-                // {...register('message', { required: true })}
               />
               <br />
               <InputForm
-                // value={payload.file}
                 handleFileChange={handleFileChange}
-                value={payloadData.file.name}
                 type="file"
-                keyPayload={"file"}
-                className={'file-input'}
+                className={'file-input'}s
               />
               <div className="send-btn">
-                <button type="submit" onClick={() => handleSendMsg(false)}>
+                <button type="submit">
                   Send Message
                 </button>
               </div>
             </div>
-
-          </div>
+          </form>
         </div>
         <div className="map">
           <iframe
