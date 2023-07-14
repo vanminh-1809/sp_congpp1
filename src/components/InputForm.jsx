@@ -36,7 +36,7 @@ const InputForm = ({
   };
 
   useEffect(() => {
-    reset({ name: payloadData.name, email: payloadData.email });
+    reset({ name: payloadData.name, email: payloadData.email, message: payloadData.message });
   }, [payloadData]);
 
   return (
@@ -126,6 +126,7 @@ const InputForm = ({
             fontWeight: "400",
             color: "white",
           }}
+          {...register('message', {required: false})}
         />
         <div className="send-btn">
           <button type="submit">Send Message</button>
