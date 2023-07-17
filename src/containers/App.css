@@ -125,10 +125,8 @@
 
 .input-form {
   width: 566px;
-  height: 750px;
+  height: 600px;
   background-image: linear-gradient(90deg, #179a76 0%, #eb3225 100%);
-  /* margin-top: 240px;
-  margin-left: 600px;  */
   box-sizing: border-box;
   font-size: 36px;
   margin-bottom: 0px;
@@ -195,8 +193,8 @@
   margin-left: 35px; */
   height: 51px;
   width: 471px;
-  margin-left: 19px;
-  margin-top: 10px;
+  margin-left: 40px;
+  margin-top: 30px;
 }
 
 input::placeholder {
@@ -218,14 +216,14 @@ textarea::placeholder {
 .is-msg {
   height: 150px;
   width: 471px;
-  margin-left: 19px;
-  margin-top: 10px;
+  margin-left: 40px;
+  margin-top: 30px;
   overflow-wrap: break-word;
 }
 
 .file-input {
-  margin-left: 19px;
-  margin-top: 10px;
+  margin-left: 40px;
+  margin-top:30px;
 }
 
 .contact-form {
@@ -406,7 +404,7 @@ textarea::placeholder {
 }
 
 .map {
-  margin-top: 80px;
+  margin-top: 200px;
 }
 
 .review-form {
@@ -428,16 +426,34 @@ textarea::placeholder {
   text-align: center;
 }
 
-.button-list {
-  margin-top: 100px;
+.button-submit {
+  margin-top: 10px;
   margin-left: 210px;
   display: inline-block;
   padding: 10px 20px;
   color: white;
-  background-color: rgb(13, 237, 237);
+  background-color: rgb(237, 140, 13);
   font-size: 16px;
   cursor: pointer;
   border-radius: 10px;
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
   outline: none;
+}
+
+.button-back { 
+  margin-top: 10px;
+  margin-left: 210px;
+  display: inline-block;
+  padding: 10px 20px;
+  color: white;
+  background-color: rgb(237, 140, 13);
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 10px;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  outline: none;
+}
+
+.input-field small{
+  color: red;
 }

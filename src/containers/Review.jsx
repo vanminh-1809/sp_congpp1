@@ -25,18 +25,14 @@ const Review = () => {
     const handleSubmitPopup = () => {
         Swal.fire({
             title: 'Bạn có muốn lưu tất cả dữ liệu này không? Nếu không thì hãy nhấn nút Back để nhập lại dữ liệu',
-            showDenyButton: true,
-            showCancelButton: false,
+            showDenyButton: false,
+            showCancelButton: true,
             confirmButtonText: 'Save',
-            denyButtonText: `Back`,
         }).then((result) => {
             if (result.isConfirmed) {
                 handleOnclickSubmit();
-                Swal.fire('Lưu thành công!', '', 'success').then(() => {window.location.reload()});
+                Swal.fire('Lưu thành công!', '', 'success').then(() => { window.location.reload() });
                 handleOnclickBack();
-            } else if (result.isDenied) {
-                handleOnclickBack();
-                Swal.fire('Hãy nhập lại dữ liệu', '', 'info')
             }
         })
     };
@@ -51,14 +47,8 @@ const Review = () => {
                     <p>Message: {payloadData.message}</p>
                     <p>File: {payloadData.file.name}</p>
                 </div>
-                <div className="button-list">
-                    <button
-                        type="submit"
-                        onClick={handleSubmitPopup}
-                    >
-                        Submit
-                    </button>
-                </div>
+                <button className="button-submit" type="submit" onClick={handleSubmitPopup}>Submit</button>
+                <button className="button-back" type="button" onClick={handleOnclickBack}>Back</button>
             </div>
         </Fragment >
     )

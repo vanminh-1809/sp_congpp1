@@ -1,47 +1,8 @@
-import { Fragment, memo, useState } from "react";
+import { Fragment, memo } from "react";
 import InputForm from "../components/InputForm";
 import ContactForm from "../components/ContactForm";
-import { useNavigate } from 'react-router-dom';
-import { useForm } from 'react-hook-form';
-import { useCallback } from 'react';
-import { path } from '../utils/constant.js';
-import { useSelector, useDispatch } from "react-redux";
-import { setFromPayload, updateFile } from "../Redux/payloadDataAction";
 
 const Body = () => {
-  const { register, handleSubmit, formState: {errors} } = useForm();
-  const payloadData = useSelector((state) => state);
-  const dispatch = useDispatch();
-
-  const placeholder = {
-    name: "Your Name*",
-    email: "Your Email*",
-    message: "Message...",
-  };
-
-  const navigate = useNavigate();
-  const handleSendMsg = useCallback((flag, data) => {
-    navigate(path.REVIEW, { state: { flag } });
-    console.log('aaa', data)
-  });
-
-  const handleInputChange = (key, value) => {
-    const updatedPayloadData = {
-      ...payloadData,
-      [key]: value
-    };
-    dispatch(setFromPayload(updatedPayloadData));
-  };
-
-  const handleFileChange = (event) => {
-    const selectedFile = event.target.files[0];
-    dispatch(updateFile(selectedFile))
-  };
-
-  const onSubmit = () => {
-    console.log('test');
-  };
-
   return (
     <Fragment>
       <div className="body" style={{ marginTop: '111px' }}>
@@ -68,54 +29,16 @@ const Body = () => {
           <div className="contact-container">
             <ContactForm />
           </div>
-          <form className="input-form" action='' onSubmit={handleSubmit(handleSendMsg)}>
+          <div className="input-form">
             <h3 className="form-title"> Ready to Get Started?</h3>
             <small className="">
               Your email address will not be published. Required fields are
               marked*
             </small>
             <div className="input-field" >
-              <InputForm
-                placeholder={placeholder.name}
-                value={payloadData.name}
-                setValue={(value) => handleInputChange('name', value)}
-                type="name"
-                name='name'
-                className={"not-msg"}
-                {...register('name', { required: true })}
-              />
-              {(Object.keys(errors).length !== 0 && errors?.name.type === 'required') && <small className="error-container">Name is required</small>}
-              <br />
-              <InputForm
-                placeholder={placeholder.email}
-                value={payloadData.email}
-                setValue={(value) => handleInputChange('email', value)}
-                type="email"
-                className={"not-msg"}
-                {...register('email', { required: true, pattern: /^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/ })}
-              />
-              {(Object.keys(errors).length !== 0 && errors?.email.type === 'required') && <small className="error-container">Email is not valid</small>}
-              <br />
-              <InputForm
-                placeholder={placeholder.message}
-                value={payloadData.message}
-                setValue={(value) => handleInputChange('message', value)}
-                type="message"
-                className={"is-msg"}
-              />
-              <br />
-              <InputForm
-                handleFileChange={handleFileChange}
-                type="file"
-                className={'file-input'}s
-              />
-              <div className="send-btn">
-                <button type="submit">
-                  Send Message
-                </button>
-              </div>
+              <InputForm />
             </div>
-          </form>
+          </div>
         </div>
         <div className="map">
           <iframe
